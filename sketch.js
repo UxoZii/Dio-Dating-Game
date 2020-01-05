@@ -12,7 +12,7 @@ function preload(){
 
 function setup() {
   canvas = createCanvas(1200, 800);
-  canvas.position(100,100);
+  canvas.position = (20,20)
   index = 0;
   textSize(30)
   displayString = "";
@@ -24,7 +24,8 @@ function draw() {
   background(100);
   
   doScene(index);
-
+  textSize(18);
+  text("press Space to continue",500,795)
 }
 
 function doScene(index){
@@ -37,7 +38,7 @@ function doScene(index){
     displayString += dialogue[index][1].charAt(c);
     if (c != lettersMax) {c++}
   }
-  
+  textSize(30)
   if (c != lettersMax) {text(displayString,20,600)} else {text(dialogue[index][1],20,600)}
   for (var i = 0; i < dialogueImages[index].length; i++){
     var name = dialogueImages[index][i][0]
