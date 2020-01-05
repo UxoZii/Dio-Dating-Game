@@ -12,7 +12,7 @@ function preload(){
 
 function setup() {
   canvas = createCanvas(1200, 800);
-  canvas.position = (100,100);
+  canvas.position(100,100);
   index = 0;
   textSize(30)
   displayString = "";
