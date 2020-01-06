@@ -8,6 +8,8 @@ function preload(){
   goga = loadImage('images/goga.png'); 
   slav = loadImage('images/slav.png'); 
   slobama = loadImage('images/slobama.png'); 
+  dialogueBox = loadImage("images/dialogueBox.png");
+  scene = loadImage("images/scenes/scene1.jpg");
 }
 
 function setup() {
@@ -24,11 +26,15 @@ function draw() {
   background(100);
   
   doScene(index);
+  fill(color(225,225,225))
   textSize(18);
   text("press Space to continue",500,795)
 }
 
 function doScene(index){
+  image(scene,0,0)
+  scene.resize(1200,800);
+  
   
   lettersMax = dialogue[index][1].length
   
@@ -38,14 +44,20 @@ function doScene(index){
     displayString += dialogue[index][1].charAt(c);
     if (c != lettersMax) {c++}
   }
-  textSize(30)
-  if (c != lettersMax) {text(displayString,20,600)} else {text(dialogue[index][1],20,600)}
+  
   for (var i = 0; i < dialogueImages[index].length; i++){
     var name = dialogueImages[index][i][0]
     var position = dialogueImages[index][i][1]
     doImage(name,position)
   }
   
+  
+  image(dialogueBox,0,500)
+  textSize(30)
+  if (c != lettersMax) {text(displayString,20,700)} else {text(dialogue[index][1],20,700)}
+
+  
+  text(name+":",20,650)
   
 }
 
